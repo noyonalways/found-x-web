@@ -17,6 +17,7 @@ import NextLink from "next/link";
 import { Logo, SearchIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
 import { siteConfig } from "@/config/site";
+import NavbarDropdown from "../ui/navbar-dropdown";
 
 export const Navbar = () => {
   const searchInput = (
@@ -46,7 +47,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+            <p className="font-bold text-inherit">Found X</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -74,7 +75,11 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex gap-2">
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+        <NavbarItem className="hidden sm:flex gap-2">
+          <NavbarDropdown />
+        </NavbarItem>
+
+        {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
